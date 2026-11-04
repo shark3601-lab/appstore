@@ -11,5 +11,25 @@ services:
     x-runtipi:
       is_main: true
       internal_port: 53842
+  # Avvisi via email a ogni download: legge il log di Gokapi, non tocca i file
+  notifica:
+    image: python:3.13-slim
+    restart: unless-stopped
+    command: ["python", "-u", "/notifica/notifica.py"]
+    environment:
+      - TZ=Europe/Rome
+      - PZ_EMAIL_AVVISI=${PZ_EMAIL_AVVISI}
+      - PZ_URL_PUBBLICO=${PZ_URL_PUBBLICO}
+      - PZ_SMTP_HOST=${PZ_SMTP_HOST}
+      - PZ_SMTP_PORTA=${PZ_SMTP_PORTA}
+      - PZ_SMTP_UTENTE=${PZ_SMTP_UTENTE}
+      - PZ_SMTP_PASSWORD=${PZ_SMTP_PASSWORD}
+      - PZ_SMTP_MITTENTE=${PZ_SMTP_MITTENTE}
+    volumes:
+      - ${APP_DATA_DIR}/data/data:/app/data:ro
+      # Copia qui gokapi-notifica/notifica.py; qui resta anche il segno di dove è arrivato nel log
+      - ${APP_DATA_DIR}/data/notifica:/notifica
+    depends_on:
+      - gokapi
 x-runtipi:
   schema_version: 2

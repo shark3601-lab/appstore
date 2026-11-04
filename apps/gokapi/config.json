@@ -11,7 +11,7 @@
     "utilities"
   ],
   "description": "Condivisione file in stile WeTransfer: link che scadono dopo un numero di download o di giorni, password opzionale, crittografia. Con il tema PZ.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "v2.2.4",
   "source": "https://github.com/Forceu/Gokapi",
   "website": "https://gokapi.readthedocs.io",
@@ -21,8 +21,57 @@
     "arm64",
     "amd64"
   ],
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "email",
+      "label": "Email per gli avvisi di download",
+      "hint": "Qui arriva un'email ogni volta che un cliente scarica un file. Vuoto: avvisi spenti.",
+      "required": false,
+      "env_variable": "PZ_EMAIL_AVVISI"
+    },
+    {
+      "type": "url",
+      "label": "Indirizzo pubblico di Gokapi",
+      "hint": "Per il bottone dell'email, per esempio https://transfer.tuodominio.it",
+      "required": false,
+      "env_variable": "PZ_URL_PUBBLICO"
+    },
+    {
+      "type": "text",
+      "label": "Server SMTP",
+      "hint": "Per esempio mail.infomaniak.com o smtp.gmail.com",
+      "required": false,
+      "env_variable": "PZ_SMTP_HOST"
+    },
+    {
+      "type": "number",
+      "label": "Porta SMTP",
+      "hint": "587 (STARTTLS) o 465 (SSL)",
+      "required": false,
+      "default": 587,
+      "env_variable": "PZ_SMTP_PORTA"
+    },
+    {
+      "type": "text",
+      "label": "Utente SMTP",
+      "required": false,
+      "env_variable": "PZ_SMTP_UTENTE"
+    },
+    {
+      "type": "password",
+      "label": "Password SMTP",
+      "required": false,
+      "env_variable": "PZ_SMTP_PASSWORD"
+    },
+    {
+      "type": "email",
+      "label": "Mittente",
+      "hint": "Vuoto: usa l'utente SMTP",
+      "required": false,
+      "env_variable": "PZ_SMTP_MITTENTE"
+    }
+  ],
   "created_at": 1793750516740,
-  "updated_at": 1793750516740,
+  "updated_at": 1793836800000,
   "min_tipi_version": "4.5.0"
 }
