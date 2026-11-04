@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.runtipi.io/app-info.json",
+  "name": "Gokapi",
+  "id": "gokapi",
+  "available": true,
+  "short_desc": "File sharing con link a scadenza, tema PZ",
+  "author": "Forceu",
+  "port": 8642,
+  "categories": [
+    "data",
+    "utilities"
+  ],
+  "description": "Condivisione file in stile WeTransfer: link che scadono dopo un numero di download o di giorni, password opzionale, crittografia. Con il tema PZ.",
+  "tipi_version": 1,
+  "version": "v2.2.4",
+  "source": "https://github.com/Forceu/Gokapi",
+  "website": "https://gokapi.readthedocs.io",
+  "exposable": true,
+  "dynamic_config": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "form_fields": [],
+  "created_at": 1793750516740,
+  "updated_at": 1793750516740,
+  "min_tipi_version": "4.5.0"
+}
