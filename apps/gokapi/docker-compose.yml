@@ -1,0 +1,15 @@
+services:
+  gokapi:
+    image: f0rc3/gokapi:v2.2.4
+    environment:
+      - TZ=Europe/Rome
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/app/config
+      - ${APP_DATA_DIR}/data/data:/app/data
+      # Tema PZ: copia qui il contenuto di gokapi-tema/custom, poi riavvia l'app
+      - ${APP_DATA_DIR}/data/custom:/app/custom
+    x-runtipi:
+      is_main: true
+      internal_port: 53842
+x-runtipi:
+  schema_version: 2
